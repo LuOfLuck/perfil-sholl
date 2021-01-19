@@ -1,0 +1,54 @@
+{% extends "sitio_web_app/base.html" %}
+{% load static %}
+{% block content %}
+
+    <section>
+
+        <div class="informacion">
+
+            <div class="informacion-div">
+                
+                <b> categorias: &nbsp;</b>
+                
+                {% for categoria in categoria%}
+
+                        <a class="informacion-div-a" href="categoria/{{categoria.id}}/">
+                    
+                            {{categoria.nombre}}
+                        
+                        </a>
+                        /
+                {% endfor %}
+            
+            </div>
+
+        </div>
+
+    </section>
+
+    <div class="container">
+        
+        <div class="row">
+
+            {% for post in post %}
+                
+                <div class="col-sm-6 col-lg-4 col-xl-5">
+
+      
+                            <div class="card my-5" style="width: 18rem; height: auto; padding: 10px;">
+                                <img class="card-img-top blog-img" src="{{post.imagen.url}}" alt="">
+                                <div class="card-body text-truncat">
+                                  <h5 class="card-title">{{post.titulo}}</h5>
+                                  <h6 class="card-subtitle mb-2 text-muted">{{post.autor}}</h6>
+                                  <p class="card-text">{{post.contenido|slice:'60'|lower}}...</p>
+                                  <a href="post/{{post.id}}/#titulo" class="btn btn-primary">Ver mas...</a>
+                                </div>
+                              </div>
+
+                       
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

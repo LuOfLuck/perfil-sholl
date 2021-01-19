@@ -1,0 +1,86 @@
+{% extends "sitio_web_app/base.html" %}
+{% load static %}
+{% block content %}
+
+
+<section>
+
+</section>
+
+
+  
+        <div class="col-sm-10 col-lg-11 mx-auto my-5 p-0 m-0">
+            <div class="card ">
+                <div class="card-body m-0 p-0" style="margin: 10px;">
+
+                        <div id="titulo"class="card-header card-title post-titulo">
+                            
+                            {{post.titulo}}
+                            
+                        </div>
+
+                        <img class="post-img" src="{{post.imagen.url}}" alt="Card image cap">
+                        <div class="card-text post-contenido">
+                            {{post.contenido}}
+                        </div>
+
+                        
+                    </div>
+                    {% if user.is_authenticated %}
+                        <div class="comentario">
+                            <div class="card-title my-3 cometario-title" style="text-align: center;">
+
+                                <h2>comentarios</h2>
+
+                            </div>
+
+                                <form action="" method="POST"> {% csrf_token %}
+
+
+                                    <div class="form-group row comentario-grup mx-auto">
+
+                                        <textarea name="contenido" class="form-control" id="id_contenido" placeholder="escribe un comentario:" style="width: 75%; height: 60px;"></textarea>
+                                    
+                                        <button type="submit" class="btn btn-primary"> Enviar </button>
+
+                                    </div>
+                                </form>
+      
+                        </div>
+                    {% else %}
+
+
+                        <div class="card-header">
+                            <div class="list-group-item mb-4">
+                                <p class="mx-4">
+                                    ¿desea dejar su comentario? <a href="{% url 'login'%}"> <b>inicie sesion.</b> </a> <br>
+                                    ¿o es tu primera ves por aqui? entonces registra de forma gratuita haciendo click<a href="{% url 'registro'%}"><b> aqui </b></a>
+                                </p>
+                            </div>
+                        </div>
+            
+                    {% endif %}
+
+                    {% for comentarios in comentarios %}
+
+                        <div class="card-header">
+
+                            {{comentarios.autor}}:
+
+                            <div class="list-group-item mb-4">
+
+                                {{comentarios}}
+
+                            </div>
+                           
+                        </div>
+                        
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
+
+
+{% endblock%}

@@ -1,0 +1,81 @@
+{% extends "sitio_web_app/base.html" %}
+{% load static %}
+{% block content %}
+
+<table class="table table-dark table-bordered table-hover mx-auto" style="width: 90%; margin: 25px;">
+
+    <thead>
+
+      <tr class="mx-auto">
+
+        <th scope="col" class="th-head"> año</th>
+
+        <th scope="col" class="th-head">Horas semanales</th>
+
+        <th scope="col" class="th-head">especialidad</th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      {% for cursos in cursos%}
+      
+      <tr class="table-light">
+        
+        <th class="th-text">
+
+          <a href="materias/{{cursos.id}}/#mainNav" class="th-text">
+
+            {{cursos.año|slice:'3'}}
+
+          </a>
+          
+        </th>
+
+        <th class="th-text">
+
+          <a href="materias/{{cursos.id}}/#mainNav" class="th-text">
+            
+            {{cursos.carga_horaria}}hs
+          
+          </a>
+        
+        </th>
+        
+        {% if cursos.especialidad == none %}
+        
+          <th class="th-text">
+            
+            <a href="materias/{{cursos.id}}/" class="th-text"> 
+
+              ninguna
+
+            </a>
+
+          </th>
+
+          {% else %}
+
+            <th class="th-text">
+
+              <a href="../#{{cursos.especialidad}}" class="th-text">
+
+                {{cursos.especialidad}}
+
+              </a>
+
+            </th>
+
+          {% endif %}
+       
+      </tr>
+
+      {% endfor %}
+    
+    </tbody>
+
+  </table>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "sitio_web_app/base.html" %}
+{% load static %}
+{% block content %}
+{% for materia in materias%}
+
+<div class="card">
+    <div class="card-header">
+        <center>
+        <span><a href="#{{materia.nombre}}">{{materia.nombre}}</a></span>
+        </center>
+    </div>
+</div>
+{% endfor %}
+
+{% for materia in materias%}
+<div class="card mx-auto my-5" style="width: 70%;">
+  <div class="card-header">
+    <center>
+        <span id="{{materia.nombre}}">{{materia.nombre}}</span>
+    </center>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+        <span class="float-left mx-5"> Materia de: {{materia.tipo}} </span> 
+
+        <span class="float-right mx-5"> Horas por semana: {{materia.horas_semanales}} </span>
+    </li>
+    <li class="list-group-item">Contenido Añual de la materia:</li>
+    <li class="list-group-item">
+        <span>
+            {{materia.contenido}}
+        </span>
+    </li>
+  </ul>
+</div>
+<div class="fixed-bottom m-5" style="text-align:right;">
+    <a href="#mainNav">
+        <i class="fas fa-angle-double-up"  style="color:#FFFFFF; font-size: 30px;"></i>
+    </a>
+</div>
+{% endfor %}
+{% endblock%}

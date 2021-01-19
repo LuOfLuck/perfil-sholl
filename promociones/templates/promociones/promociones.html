@@ -1,0 +1,27 @@
+{% extends "sitio_web_app/base.html" %}
+{% load static %}
+{% block content %}
+<div class="row my-5">
+{% for promo in promocion%}
+    <div class="card border-secondary col-sm-6 col-lg-5 mx-auto" style="height: auto;">
+        <div class="card-body" >
+            <img class="card-img-top" src="{{promo.foto.url}}" alt="" style="height: 20em;">
+            <div class="card-title">
+                <h3 style="text-align: center;"> {{promo.nombre}}</h3>
+                <h6 class="card-subtitle mb-2 text-muted">{{promo.año}}</h6>
+            </div>  
+
+            <div class="pt m-2">
+                <p> {{promo.mensaje}}</p>
+            </div>
+            <div class="bt m-1 ">
+                <a href="recuerdos/{{promo.año}}"><button class="btn btn-success float-left">¿vaul de los recuerdos?</button></a>
+                <a href="egresados/{{promo.año}}"><button class="btn btn-primary float-right">Egresados</button></a>
+            </div>
+
+        </div>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}
+

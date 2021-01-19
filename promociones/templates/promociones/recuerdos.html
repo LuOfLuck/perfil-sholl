@@ -1,0 +1,13 @@
+{% extends "sitio_web_app/base.html" %}
+{% load static %}
+{% block content %}
+    <div class="row">
+        {% for foto in foto %}
+            <div class="col-sm-6 col-lg-6 m-0 p-0 my-1">
+                <div class="img">
+                    <img class="card-img-top img-thumbnail p-0" src="{{foto.foto.url}}" alt="" style="height: 400px; ">
+                </div>
+            </div>
+        {% endfor%}
+    </div>
+{% endblock%}

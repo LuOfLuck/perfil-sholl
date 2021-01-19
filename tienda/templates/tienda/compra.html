@@ -1,0 +1,70 @@
+{% extends "sitio_web_app/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="imagen col-sm-6 col-lg-6">
+            <img src="{{producto.imagen}}" style="width: 300px; height: auto;">
+        </div>
+        <div class="card col-sm-6 col-lg-6 ">
+            <div class="card-body">
+                <div class="card-title">
+                    <h2>{{producto.nombre}}</h2>
+                </div>
+                <span>
+                    precio: {{producto.precio|floatformat:1}}$
+                </span>
+                <p style="font-size:small;">
+                    descripcion: <br>
+                    {{producto.descripcion}}
+                </p>
+                <p>
+                    metodo de pago:
+                </p>
+                <div id="paypal-button-container"></div>
+            </div>
+        </div>
+       
+    </div>
+</div>
+
+
+
+<!-- Include the PayPal JavaScript SDK -->
+<script src="https://www.paypal.com/sdk/js?client-id=AfkcTQYRV56eDlZDiub7mEib8JMB5vV_YqH7-M_Bj7JLlLPepuahPz1Ddp1ka6VOuHbOONJXftYxHsKs&currency=USD"></script>
+
+<script>
+
+
+    var total = '{{producto.precio}}'
+
+    var productoId = '{{producto.id}}'
+
+
+    // Render the PayPal button into #paypal-button-container
+    paypal.Buttons({
+
+        // Set up the transaction
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: '0.5'
+                    }
+                }]
+            });
+        },
+
+        // Finalize the transaction
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+               
+                // Show a success message to the buyer
+                alert('Transaction completed by ' + details.payer.name.given_name + '!');
+            });
+        }
+
+
+    }).render('#paypal-button-container');
+</script>
+{% endblock %}

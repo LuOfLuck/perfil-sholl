@@ -1,0 +1,167 @@
+<html>
+
+<head>
+
+
+    {% load static %}
+
+    <TItle>
+      {{titulo}}
+    </TItle>
+
+    <!-- Bootstrap -->
+    <link href="{% static 'sitio_web_app/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+     <!-- Fonts -->
+    
+     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
+     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+     
+
+    <!-- Styles -->
+    <link href="{% static 'sitio_web_app/css/gestion.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+
+<body>
+
+  {% if messages %}
+    {%for messages in messages%}
+
+    <div class="notification">
+        {{messages}}
+    </div>
+
+    {% endfor %}
+  {% endif %}
+<div class="sesion-p sesion">
+  {% if user.is_authenticated %}
+
+        <a class="text-uppercase s
+        esion-p-a" href="{% url 'logout' %}">
+          <button class="sesion-p-a-button sesion-p-a-button2 btn btn-danger ">
+            <span>Cerrar sesion</span>
+          </button>
+        </a>
+
+  {% else %}
+     
+        <a class="text-uppercase sesion-p-a " href="{% url 'login' %}">
+          <button class="sesion-p-a-button sesion-p-a-button1 btn btn-primary">
+            <span>iniciar sesion  </span>
+          </button>
+        </a>
+        <a class="text-uppercase sesion-p-a " href="{% url 'registro' %}">
+          <button class="sesion-p-a-button sesion-p-a-button2 btn btn-primary float-right">
+           <span>Registrarse  </span>
+          </button>
+        </a>
+      
+  {% endif %}
+</div>
+      </ul>
+
+    <h1 class="site-heading text-center text-white d-none d-lg-block">
+      
+        <span class="site-heading-lower">Tecnica catorce</span>
+    </h1>
+    
+
+
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="/">Tecnica catorce</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav mx-auto">
+
+          <li class="nav-item {% if request.path == '/' %} active {% endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Home' %}">Inicio</a>
+          </li>
+          <li class="nav-item {% if request.path|slice:'8' == '/cursos/' %} active {% endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'cursos' %}">cursos</a>
+          </li>
+          <li class="nav-item {% if request.path|slice:'13' == '/promociones/' %} active {% endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Promociones' %}">promociones</a>
+          </li>
+
+          <li class="nav-item {% if request.path|slice:'13' == '/informacion/' %} active {% endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="/informacion/">avisos</a>
+          </li>
+          <li class="nav-item {% if request.path == '/contacto/' %} active {% endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'contacto'%}">Contacto</a>
+          </li> 
+          <li class="nav-item {% if request.path == '/tienda/' %} active {% endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Tienda'%}">Tienda</a>
+          </li>
+          <div class="sesion_m">
+            {% if user.is_authenticated %}
+              <li class="px-lg-4">
+                <a class="nav-link text-uppercase text-expanded" href="{% url 'logout' %}">Cerrar sesion</a>
+              </li>
+            {% else %}
+              <li class="nav-item px-lg-4">
+                <a class="nav-link text-uppercase text-expanded" href="{% url 'login' %}">iniciar sesion</a>
+              </li>
+              <li class="nav-item px-lg-4">
+                <a class="nav-link text-uppercase text-expanded" href="{% url 'registro' %}">Registrarse</a>
+              </li>
+            {% endif %}
+          </div>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<!--Contendido cambiante-->
+{% block content %}
+
+{% endblock %}
+
+
+    <!-- Footer -->
+    <footer class="footer text-faded text-center py-5">
+      <div class="container">
+        <p class="m-0">
+	        <a href="#" class="link">
+	          <span class="fa-stack fa-lg">
+	            <i class="fa fa-circle fa-stack-2x"></i>
+	            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+	          </span>
+	        </a>
+	        <a href="#" class="link">
+	          <span class="fa-stack fa-lg">
+	            <i class="fa fa-circle fa-stack-2x"></i>
+	            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+	          </span>
+	        </a>
+	        <a href="#" class="link">
+	          <span class="fa-stack fa-lg">
+	            <i class="fa fa-circle fa-stack-2x"></i>
+	            <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+	          </span>
+	        </a>
+	    </p>
+        <p class="m-0 mbt">
+        	<a href="sample.html" class="link">Política de privacidad</a> ·
+        	<a href="sample.html" class="link">Aviso legal</a> ·
+          <a href="{% url 'Applica2' %}" class="link">Applica2</a>
+		</p>
+        <p class="m-0 mbt1">&copy; E.E.S.T N°14 2020</p>
+      </div>
+	</footer>
+
+    <!-- Bootstrap -->
+    <script src="{% static 'sitio_web_app/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'sitio_web_app/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    
+    <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <script scr="{% static 'sitio_web_app/js/jquery.js' %}"></script>
+   
+</body>
+
+
+</html>

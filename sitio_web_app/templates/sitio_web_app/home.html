@@ -1,0 +1,98 @@
+{% extends "sitio_web_app/base.html" %}
+{% load static %}
+{% block content %}
+
+   <!-- Heading -->
+   <section class="page-section cta">
+    <div class="container">
+      <div class="intro">
+       
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4" >
+            <span class="section-heading-lower">E.E.S.T N°14</span>
+          </h2>
+          <p class="mb-3">En la En la puertra de tu casa en menos de 48 h con el envío normal. En menos de 24 h con el envío expresEn la puertra de tu casa en menos de 48 h con el envío normal. En menos de 24 h con el envío exprespuertra de tu casa en menos de 48 h con el envío normal. En menos de 24 h con el envío expEn la puertra de tu casa en menos de 48 h con el envío normal. En menos de 24 h con el envío expresEn la puertra de tu casa en menos de 48 h con el envío normal. En menos de 24 h con el envío expresress.
+          </p>
+         
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <section class="page-section cta">
+    <div class="container">
+      <div class="intro">
+       
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4" >
+            <span class="section-heading-lower">¿con las mejores enseñaza para sus hijos</span>
+          </h2>
+          <p class="mb-3">En la puertra de tu casa en menos de 48 h con el envío normal. En menos de 24 h con el envío expresEn la puertra de tu casa en menos de 48 h con el envío normal. En menos de 24 h con el envío expresEn la puertra de tu casa en menos de 48 h con el envío normal. En menos de 24 h con el envío expresEn En la puertra de tu casa en menos de 48 h con el envío normal. En menos de 24 h con el envío expresEn la puertra de tu casa en menos de 48 h con el envío normal. En menos de 24 h con el envío expresla puertra de tu casa en menos de 48 h con el envío normal. En menos de 24 h con el envío express.
+          </p>
+         
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  
+    <!-- Message -->
+    <section class="page-section cta">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <div class="cta-inner text-center rounded">
+              <h2 class="section-heading mb-4">
+                <span class="section-heading-lower">¡10 años siendo escuela tecnica!</span>
+              </h2>
+              <p class="mb-0"> Luego de mucha lucha y esfuerzo la E.E.S.T N°14 cuenta con 18 aulas para ciclo basico, un area exclusiva para los talleres, con profesores capacitados y especializador en su area a enseñar.</p>
+              <p class="mb-0"> Aspirando a tener la mejor formalidad tecnica en todas sus especialidades </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <center >
+    <iframe style="margin-bottom: 100px;" width="560" height="315" src="https://www.youtube.com/embed/ClbbhYN8_ec" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </center>
+
+           <!-- Message -->
+           <section class="page-section cta">
+            <div class="container">
+              <div class="row">
+                <div class="col-xl-9 mx-auto">
+                  <div class="cta-inner text-center rounded">
+                    <h2 class="section-heading mb-4">
+                      <span class="section-heading-lower">¡3 especialiades!</span>
+                    </h2>
+                    <p class="mb-0"> La escuela cuenta con 3 formaliades, todas desarrollandas de forma profesional y tecnica</p>
+                    <p class="mb-0"> En los siguientes cuadres encontrara explicacion detalla sobre nuestras 3 tecnicaturas: </p>
+                    <p class="mb-0"> Tecnologias de los alimentos - Programacion - informatica </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+  
+      {% for servicio in servicio %}
+  
+  
+      <section class="page-section clearfix">
+          <div class="container" id="{{servicio.titulo}}">
+            <div class="intro">
+              
+              <div class="intro-text left-0 text-left bg-faded p-5 rounded">
+                <h2 class="section-heading mb-4" >
+                  <span class="section-heading-lower">{{servicio.titulo}}</span>
+                </h2>
+                <p class="mb-3">{{servicio.contenido}} </p>
+              </div>
+              <img class="intro-img img-thumbnail mb-3 mb-lg-0 rounded mx-auto d-block w3-card-4" src="{{servicio.imagen.url}}" alt="">
+            </div>
+          </div>
+        </section>
+      
+    {% endfor %}
+  
+  {% endblock %}

@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="{% static 'sitio_web_app/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    </head>
+    {% if messages %}
+    {%for messages in messages%}
+
+    <div class="notification {{ messages.tags }}">
+        {{messages}}
+    </div>
+
+    {% endfor %}
+  {% endif %}
+
+    <body>
+        <br><br><br>
+        <div class="container col-sm-10 col-lg-8 mx-auto" >
+        
+                <div class="">
+                    
+                    <div class="card">
+                        <div class="card-body" >
+                            <div class="card-title" style="text-align: center;">
+                                <h2>ingresa tus credenciales</h2>
+                            </div>
+                            <form action="" method="POST" style="text-align: left;">
+                                {% csrf_token %}
+                                <table style="margin:auto; margin-bottom: 10px;">
+                                    {{ from.as_table }}
+                                </table>
+                                <a href="{% url 'Home' %}" class="btn btn-outline-primary float-left" >Ir al inicio</a>
+                                <a href="{% url 'login' %}" class="btn btn-secondary" style="margin-left: 10px;">¿ya tienes una cuenta?</a>
+                                <input type="submit" value="Registrarse" class="btn btn-success float-right">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <br><br><br>>
+
+        </div>
+
+    </body>
+</html>
