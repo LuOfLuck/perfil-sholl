@@ -32,14 +32,14 @@
 
             {% for post in post %}
                 
-                <div class="col-sm-6 col-lg-4 col-xl-5">
+                <div class="col-sm-6 col-lg-4 mx-auto">
 
-      
-                            <div class="card my-5" style="width: 18rem; height: auto; padding: 10px;">
+
+                            <div class="card bg my-5 col-12" >
                                 <img class="card-img-top blog-img" src="{{post.imagen.url}}" alt="">
                                 <div class="card-body text-truncat">
                                   <h5 class="card-title">{{post.titulo}}</h5>
-                                  <h6 class="card-subtitle mb-2 text-muted">{{post.autor}}</h6>
+                                  <h6 class="card-subtitle mb-2 text-muted">autor: {{post.autor}}</h6>
                                   <p class="card-text">{{post.contenido|slice:'60'|lower}}...</p>
                                   <a href="post/{{post.id}}/#titulo" class="btn btn-primary">Ver mas...</a>
                                 </div>

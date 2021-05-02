@@ -245,7 +245,6 @@ p {
   
     background-color:rgba(255, 255, 255, 0.85);
     color: cornsilk;
-    left: 600px;
     display: block;
   }
   .intro .intro-text .intro-button {
@@ -259,10 +258,10 @@ p {
 
 @media (min-width: 1200px) {
   .intro .intro-text {
-    width: 45%;
+    width: 70%;
   }
   .intro .intro-img{
-    width: 20%;
+    width: 70%;
   }
 }
 
@@ -273,7 +272,7 @@ p {
 }
 
 .cta .cta-inner {
-  position: static;
+  /* position: static; */
   padding: 3rem;
   margin: 0.5rem;
   background-color: rgba(255, 255, 255, 0.85);
@@ -289,6 +288,7 @@ p {
   left: -0.5rem;
   right: -0.5rem;
   border: 0.25rem solid rgba(255, 255, 255, 0.85);
+  z-index: -10
 }
 .mb-0{
   color:rgba(0, 0, 0, 0.7);
@@ -420,7 +420,7 @@ p {
   text-align: center;
   font-size: 3.4em;
   text-transform: uppercase;
-  color: rgb(151, 148, 148);
+  color: white;
   text-shadow: 0  1px  0   #000000,
                0  2px  0   #080808,
                0  3px  0   #111111, 
@@ -453,11 +453,14 @@ p {
   margin-bottom: 2rem;
 
 }
-
+.trasparente{
+  background-color: #e9e9e994;
+}
 .comentario{
   display:block;
   border-top:1px solid; 
   padding: 2rem;
+  
 }
 .comentario-grup button{
   margin-top: 10px;
